@@ -1,26 +1,17 @@
 var ccxt = require ('ccxt');
 
+
 // console.log (ccxt.exchanges) // print all available exchanges
+
 // JavaScript
 (async () => {
-		// console.log(exchanges);
-		// ab=['yobit','kraken','bitfinex']
-        // var index, len;
-		// for (index = 0, len = ab.length; index < len; ++index) {
-			
-		   // var exname=ab[index];
-		   // console.log(exname);
-		   // const enableRateLimit = true
-            // // const exchange = new ccxt.yobit({ enableRateLimit })
-            // var exchange = new ccxt[exname]({ enableRateLimit })
-            // const symbol = 'BTC/USD'
 
             while (true) {
-				exchanges=['yobit','kraken','bitfinex']
+				exchanges=['yobit','kraken','bitfinex'] //list of all exchanges that you want to listen to
 				var index, len;
-				for (index = 0, len = ab.length; index < len; ++index) {
+				for (index = 0, len = exchanges.length; index < len; ++index) {
 				
-			   var exname=ab[index];
+			   var exname=exchanges[index];
 			   // console.log(exname);
 			   const enableRateLimit = true
 				// const exchange = new ccxt.yobit({ enableRateLimit })
