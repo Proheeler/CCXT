@@ -1,0 +1,35 @@
+environment:
+  matrix:
+    - nodejs_version: '8'
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - set CI=true
+  - npm install --global npm@latest
+  - set PATH=%APPDATA%\npm;%PATH%
+  - npm install
+  - pip install tox
+  - cinst -y curl
+  - SET PATH=C:\Program Files\curl;%PATH%
+  - cinst php --version 7.0.9 --allow-empty-checksums
+  - cd c:\tools\php
+  - copy php.ini-production php.ini
+  - echo date.timezone="UTC" >> php.ini
+  - echo extension_dir=ext >> php.ini
+  - echo extension=php_curl.dll >> php.ini
+  - echo extension=php_mbstring.dll >> php.ini
+  - cd %APPVEYOR_BUILD_FOLDER%
+matrix:
+  fast_finish: true
+build: off
+shallow_clone: true
+before_test:
+- cinst pandoc
+- pandoc -v
+test_script:
+  - refreshenv
+  - node --version
+  - npm --version
+  - npm run build
+  - npm run test-base
+cache:
+- '%APPDATA%\npm-cache'

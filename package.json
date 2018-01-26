@@ -1,0 +1,14 @@
+{
+  "name": "fortest",
+  "version": "1.0.0",
+  "description": "test ccxt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Viacheslav Reshetnikov",
+  "license": "ISC",
+  "dependencies": {
+    "ccxt": "^1.10.849"
+  }
+}
